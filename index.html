@@ -1,1 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Your Holiday House | Private Vacation Rental</title>
+
+    <meta name="description" content="A beautiful private holiday house for a relaxing stay with family and friends.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            background: #f7f6f2;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #222;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #777;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 82vh;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.35),
+                    rgba(0,0,0,0.35)
+                ),
+                url("images/hero.jpg") center center / cover no-repeat;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: 1.1;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 21px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 30px;
+
+            background: white;
+            color: #222;
+
+            text-decoration: none;
+            border-radius: 5px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .button-dark {
+            background: #333;
+            color: white;
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 90px 30px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 40px;
+            font-weight: 500;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 55px;
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-text {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* =========================
+           GALLERY
+        ========================= */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            background: #ddd;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.04);
+        }
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .feature {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .feature-icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .feature p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* =========================
+           ROOMS
+        ========================= */
+
+        .rooms {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+
+        .room {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+        }
+
+        .room img {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .room-content {
+            padding: 30px;
+        }
+
+        .room-content h3 {
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+
+        .room-content p {
+            color: #666;
+        }
+
+        .room-details {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* =========================
+           SURROUNDINGS
+        ========================= */
+
+        .places {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .place {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .place img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .place-content {
+            padding: 22px;
+        }
+
+        .place-content h3 {
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .place-content p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* =========================
+           GOOGLE MAPS
+        ========================= */
+
+        .map-container {
+            margin-top: 50px;
+        }
+
+        .map-placeholder {
+            height: 450px;
+            background: #e5e5e5;
+            border-radius: 10px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            padding: 30px;
+        }
+
+        .map-placeholder h3 {
+            margin-bottom: 10px;
+        }
+
+        .map-placeholder p {
+            color: #666;
+        }
+
+        /* =========================
+           BOOKING
+        ========================= */
+
+        .booking-section {
+            background: white;
+            max-width: none;
+        }
+
+        .booking-inner {
+            max-width: 1200px;
+            margin: auto;
+            padding: 90px 30px;
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .booking-info h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .booking-info p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-details div {
+            margin-bottom: 12px;
+        }
+
+        /* =========================
+           AVAILABILITY
+        ========================= */
+
+        .calendar {
+            background: #f7f6f2;
+            border-radius: 10px;
+            padding: 35px;
+            text-align: center;
+        }
+
+        .calendar h3 {
+            margin-bottom: 15px;
+        }
+
+        .calendar p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer p {
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                display: none;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .rooms {
+                grid-template-columns: 1fr;
+            }
+
+            .places {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            section {
+                padding: 65px 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="nav-container">
+
+        <a href="#" class="logo">
+            Your Holiday House
+        </a>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#rooms">Rooms</a>
+            <a href="#surroundings">Surroundings</a>
+            <a href="#booking">Booking</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Your Perfect Place to Stay
+        </h1>
+
+        <p>
+            A peaceful private holiday house where you can relax,
+            enjoy nature and create unforgettable memories.
+        </p>
+
+        <a href="#booking" class="button">
+            Book Your Stay
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+    <h2 class="section-title">
+        Welcome to Our House
+    </h2>
+
+    <p class="section-subtitle">
+        A comfortable and private place for families,
+        couples and friends looking for a relaxing getaway.
+    </p>
+
+    <div class="about-text">
+
+        <p>
+            Welcome to our holiday house. Here you will be able to
+            enjoy a peaceful atmosphere, comfortable rooms and
+            beautiful surroundings.
+        </p>
+
+        <br>
+
+        <p>
+            This section will contain the full description of your
+            property, including its location, capacity, facilities
+            and everything that makes your house special.
+        </p>
+
+    </div>
+
+
+    <!-- Main Gallery -->
+
+    <div class="gallery" id="gallery">
+
+        <div class="gallery-item">
+            <img src="images/photo1.jpg" alt="Holiday house">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/photo2.jpg" alt="Holiday house">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/photo3.jpg" alt="Holiday house">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/photo4.jpg" alt="Holiday house">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/photo5.jpg" alt="Holiday house">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/photo6.jpg" alt="Holiday house">
+        </div>
+
+    </div>
+
+
+    <!-- Features -->
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">🏡</div>
+            <h3>Private House</h3>
+            <p>Enjoy complete privacy during your stay.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">👨‍👩‍👧‍👦</div>
+            <h3>Perfect for Families</h3>
+            <p>Comfortable accommodation for families and groups.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🌳</div>
+            <h3>Beautiful Nature</h3>
+            <p>Relax and explore the surrounding area.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">📶</div>
+            <h3>Free Wi-Fi</h3>
+            <p>Stay connected during your visit.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ROOMS
+========================= -->
+
+<section id="rooms">
+
+    <h2 class="section-title">
+        Our Rooms
+    </h2>
+
+    <p class="section-subtitle">
+        Comfortable spaces designed to make your stay relaxing
+        and enjoyable.
+    </p>
+
+
+    <div class="rooms">
+
+        <!-- Room 1 -->
+
+        <div class="room">
+
+            <img src="images/room1.jpg" alt="Bedroom">
+
+            <div class="room-content">
+
+                <h3>
+                    Bedroom 1
+                </h3>
+
+                <p>
+                    A comfortable bedroom with everything you need
+                    for a relaxing night's sleep.
+                </p>
+
+                <div class="room-details">
+                    🛏 Double bed &nbsp; | &nbsp;
+                    👤 2 guests
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Room 2 -->
+
+        <div class="room">
+
+            <img src="images/room2.jpg" alt="Bedroom">
+
+            <div class="room-content">
+
+                <h3>
+                    Bedroom 2
+                </h3>
+
+                <p>
+                    A bright and comfortable room suitable for
+                    couples, families or friends.
+                </p>
+
+                <div class="room-details">
+                    🛏 Double bed &nbsp; | &nbsp;
+                    👤 2 guests
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Room 3 -->
+
+        <div class="room">
+
+            <img src="images/room3.jpg" alt="Bedroom">
+
+            <div class="room-content">
+
+                <h3>
+                    Bedroom 3
+                </h3>
+
+                <p>
+                    A cosy room providing a comfortable place
+                    to relax after a day of exploring.
+                </p>
+
+                <div class="room-details">
+                    🛏 Two single beds &nbsp; | &nbsp;
+                    👤 2 guests
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Room 4 -->
+
+        <div class="room">
+
+            <img src="images/room4.jpg" alt="Bedroom">
+
+            <div class="room-content">
+
+                <h3>
+                    Bedroom 4
+                </h3>
+
+                <p>
+                    A peaceful room with comfortable sleeping
+                    arrangements for your guests.
+                </p>
+
+                <div class="room-details">
+                    🛏 Double bed &nbsp; | &nbsp;
+                    👤 2 guests
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SURROUNDINGS
+========================= -->
+
+<section id="surroundings">
+
+    <h2 class="section-title">
+        Explore the Surroundings
+    </h2>
+
+    <p class="section-subtitle">
+        Discover museums, attractions, restaurants, nature
+        and other interesting places near the house.
+    </p>
+
+
+    <div class="places">
+
+
+        <div class="place">
+
+            <img src="images/place1.jpg" alt="Nearby attraction">
+
+            <div class="place-content">
+
+                <h3>
+                    Nearby Museum
+                </h3>
+
+                <p>
+                    Information about the museum, distance from
+                    the house and why it is worth visiting.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="place">
+
+            <img src="images/place2.jpg" alt="Nearby attraction">
+
+            <div class="place-content">
+
+                <h3>
+                    Local Attraction
+                </h3>
+
+                <p>
+                    Information about an interesting attraction
+                    located near the house.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="place">
+
+            <img src="images/place3.jpg" alt="Nature">
+
+            <div class="place-content">
+
+                <h3>
+                    Nature & Outdoors
+                </h3>
+
+                <p>
+                    Discover beautiful nature, walking routes
+                    and outdoor activities nearby.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Google Maps -->
+
+    <div class="map-container">
+
+        <div class="map-placeholder">
+
+            <div>
+
+                <h3>
+                    Google Maps
+                </h3>
+
+                <p>
+                    Our interactive Google Maps with selected
+                    museums, attractions, restaurants and other
+                    places will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BOOKING
+========================= -->
+
+<section id="booking" class="booking-section">
+
+    <div class="booking-inner">
+
+        <h2 class="section-title">
+            Availability & Booking
+        </h2>
+
+        <p class="section-subtitle">
+            Check available dates and contact us to arrange
+            your stay.
+        </p>
+
+
+        <div class="booking-grid">
+
+
+            <!-- Contact Information -->
+
+            <div class="booking-info">
+
+                <h3>
+                    Get in Touch
+                </h3>
+
+                <p>
+                    If you have any questions or would like to
+                    book our house, please contact us.
+                </p>
+
+                <div class="contact-details">
+
+                    <div>
+                        📞 <strong>Phone:</strong>
+                        +370 XXX XXXXX
+                    </div>
+
+                    <div>
+                        ✉️ <strong>Email:</strong>
+                        your@email.com
+                    </div>
+
+                    <div>
+                        📍 <strong>Location:</strong>
+                        Your Location
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="#"
+                    class="button button-dark"
+                >
+                    View Our Airbnb
+                </a>
+
+            </div>
+
+
+            <!-- Availability Calendar -->
+
+            <div class="calendar">
+
+                <h3>
+                    Availability Calendar
+                </h3>
+
+                <p>
+                    Our booking calendar will be connected
+                    here with the Airbnb availability calendar.
+                </p>
+
+                <a
+                    href="#"
+                    class="button button-dark"
+                >
+                    Check Availability
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 Your Holiday House. All rights reserved.
+    </p>
+
+</footer>
