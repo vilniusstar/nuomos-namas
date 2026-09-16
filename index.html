@@ -441,59 +441,72 @@
             font-size: 14px;
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
+       /* =========================
+   MOBILE
+========================= */
 
-        @media (max-width: 800px) {
+@media (max-width: 800px) {
 
-            nav {
-                display: none;
-            }
+    nav {
+        display: none;
+    }
 
-            .gallery {
-                grid-template-columns: 1fr 1fr;
-            }
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
 
-            .features {
-                grid-template-columns: 1fr 1fr;
-            }
+    .features {
+        grid-template-columns: 1fr 1fr;
+    }
 
-            .rooms {
-                grid-template-columns: 1fr;
-            }
+    .rooms {
+        grid-template-columns: 1fr;
+    }
 
-            .places {
-                grid-template-columns: 1fr;
-            }
+    .places {
+        grid-template-columns: 1fr;
+    }
 
-            .booking-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    .booking-grid {
+        grid-template-columns: 1fr;
+    }
 
-        @media (max-width: 500px) {
+    /* Google Maps */
+    .map-container {
+        display: block;
+        width: 100%;
+    }
 
-            .gallery {
-                grid-template-columns: 1fr;
-            }
+    .map-container iframe {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+    }
+}
 
-            .features {
-                grid-template-columns: 1fr;
-            }
+@media (max-width: 500px) {
 
-            .hero {
-                min-height: 75vh;
-            }
+    .gallery {
+        grid-template-columns: 1fr;
+    }
 
-            section {
-                padding: 65px 20px;
-            }
+    .features {
+        grid-template-columns: 1fr;
+    }
 
-            .section-title {
-                font-size: 32px;
-            }
-        }
+    .hero {
+        min-height: 75vh;
+    }
+
+    section {
+        padding: 65px 20px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+}
+
 /* =========================
    RECOMMENDED PARTNERS
 ========================= */
